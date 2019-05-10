@@ -37,6 +37,7 @@ namespace PeopleService
                 .Where(person => person.Gender.ToString() == genderStr && person.Pets?.Count > 0)
                 .SelectMany(person => person.Pets)
                 .Where(pet => pet.Type.ToString() == petTypeStr)
+                .OrderBy(pet => pet.Name)
                 .ToList();
         }
     }
